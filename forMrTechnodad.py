@@ -63,13 +63,15 @@ Thank you all very much.
 # because i don't have the knowledge to import com.google.gson or whatever
 # with the expectation that it'll compile correctly
 
-# the bad news is that while the loop will go as far as 1k pieces of content,
+# the bad news (besides this whole thing being in python, of course)
+# is that while the loop will go as far as 1k pieces of content,
 # there is no guarantee that it'll fully parse all 1k pieces even if the
 # supplied username has over 1k+ posting history in either category.
 # i (u/raydeeux) have been on reddit for at least three years and i *know*
 # that i have more than 1k+ comments, but this scraper only scrapes around 970+
-# on a good day. why? most likely because those comments were removed by a
-# subreddit mod for reasons beyond my control (and therefore, beyond API access).
+# for my username on a good day. why? most likely because those comments were
+# removed by some faraway subreddit mod (outside r/technoblade and r/mrtechnodad)
+# for reasons beyond my control (and therefore, beyond API access).
 
 # the good news is that unlike 90% of the reddit api-related files you'll find
 # that are written in python, this one doesn't rely on all that fancy-schamncy
