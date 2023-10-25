@@ -136,8 +136,8 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     # below line removes unnecessary line breaks and ensures the only one line break renders at a time. also allows ">" and "<" to render properly
                     prettifiedContent = content[relevantKey].replace("\r\n", "\n").replace("\n\n&amp;#x200B;", "").replace("&amp;#x200B;", "").replace("&amp;", "").replace("\n\n", "\n").replace("&gt;", ">").replace("&lt;", "<").replace("  ", " ")
                     # below lines remove non-word content
-                    prettifiedContent = re.sub(r"!\[gif\]\(.*\)", " __[GIF CONTENT]__", prettifiedContent)
-                    prettifiedContent = re.sub(r"https\:\/\/preview\.redd\.it/.*", " __[IMAGE]__", prettifiedContent)
+                    prettifiedContent = re.sub(r"!\[gif\]\(.*\)", " __[GIF CONTENT]__ ", prettifiedContent)
+                    prettifiedContent = re.sub(r"https\:\/\/preview\.redd\.it/.*", " __[IMAGE]__ ", prettifiedContent)
                     # below lines attempt to remove all reddit-specific markdown
                     prettifiedContent = re.sub(r"(\*\*\*(?P<mdbolditalic>[^\*\*\*]+)\*\*\*)", "\g<mdbolditalic>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\_\_\_(?P<mdbolditalic>[^\_\_\_]+)\_\_\_)", "\g<mdbolditalic>", prettifiedContent)
