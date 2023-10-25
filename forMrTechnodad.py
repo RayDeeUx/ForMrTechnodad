@@ -41,7 +41,8 @@ this would not be much work at all. I hope so anyway!
 I am going to take the body text of the 1000 posts and do some further string
 processing on them. The results will be going on a video on my YouTube channel.
 
-Am happy to either credit the author on the video, or not credit the author, as the author prefers.
+Am happy to either credit the author on the video, or not credit the author,
+as the author prefers.
 
 I have no idea what I ought to offer for this so I'll just say $100.
 If that number is horribly off please let me know.
