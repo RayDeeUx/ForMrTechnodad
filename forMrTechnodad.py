@@ -185,12 +185,17 @@ grabRedditContent("mrtechnodad", True) # sample code to grab comments for u/mrte
 '''
 CONCLUSION:
 depending on the mode you chose earlier above, you'll get
-a total of two text files per user. in each text file, you'll see
-strings formatted such as the one below:
+(at most) two text files per user, one for each content type
+(either comments or self-posts). in each text file, you'll see
+lines (or portions of lines) formatted such as the one below:
 
 __[FOO BAR FOO BAR]__
 
-these strings are meant to be ignored.
+...or like even further below:
+
+bar foobar foo __[FOO BAR FOO BAR]__ foobar bar foo far boo
+
+anyway, these strings are meant to be ignored.
 all other content is ready for analysis.
 
 - erymanthus[#5074] | (u/)raydeeux {u/raydeesux}
