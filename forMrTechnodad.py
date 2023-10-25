@@ -176,7 +176,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
         print("Crap! It seems you've run into error", str(e.code) + "! Aborting mission.\nFor best results, please try again in about a minute. In the meantime...")
         if e.code == 404: print("- Make sure that u/" + username, "is a valid Reddit username.")
         if e.code == 429: print("- Please try not to request so many users at once.")
-        else: print("- Have a glass of water and stay hydrated.")
+        print("- Have a glass of water and stay hydrated.")
         return
 
 grabRedditContent("mrtechnodad", False) # sample code to grab selfposts for u/mrtechnodad
