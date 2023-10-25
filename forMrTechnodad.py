@@ -149,7 +149,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     prettifiedContent = re.sub(r"(\>\!(?P<mdspoiler>[^\!\<]+)\!\<)", "\g<mdspoiler>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\>)*( )*(?P<mdquote>.*)", "\g<mdquote>", prettifiedContent)
                     prettifiedContent = re.sub(r"\^(?P<mdsuper>[^\^ ]*)", "\g<mdsuper>", prettifiedContent)
-                    prettifiedContent = re.sub(r"\#{1,5}(?P<mdheading>[^\v]*)", "\g<mdheading>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\#{1,5}(?P<mdheading>.*)", "\g<mdheading>", prettifiedContent)
                     prettifiedContent = re.sub(r"((\`){1,3}(?P<mdcode>[^\`]+)(\`){1,3})", "\g<mdcode>", prettifiedContent)
                     prettifiedContent = re.sub(r"\[(?P<mdlinktext>[^\]]*)\]\((?P<mdlinkurl>[^\)]*)\)", "\g<mdlinktext> __[\g<mdlinkurl>]__ ", prettifiedContent)
                     # ensure escaped chars render properly
