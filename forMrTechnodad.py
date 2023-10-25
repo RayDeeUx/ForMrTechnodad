@@ -165,7 +165,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     # below line writes to file (potentially for further analysis)
                     relevantFile.write("__[" + type.upper() + " #" + str(total) + "]__" + prettifiedContent + "\n__[END ABOVE " + type.upper() +  "]__\n\n")
                     # below line ensures the program isn't freezing (it did that to me once and now i don't trust my loaner dell laptop anymore)
-                    print("__[FOR DEBUGGING PURPOSES ONLY: " + type + " #" + str(total) + "]__")
+                    # print("__[FOR DEBUGGING PURPOSES ONLY: " + type + " #" + str(total) + "]__")
             if (afterKey is not None): # for debugging purposes, the afterkey returned by reddit is written to file
                 afterKeyFile.write(afterKey + "\n")
             loopCount += 1
@@ -174,7 +174,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
         afterKeyFile.close()
         # aaaaaand we are done! celebrate by printing a summary of what just happened.
         print(type, "content scraping complete for u/" + username + "!", total, type.lower() + "s were scraped.")
-        if (total != 1000): print("Note that some contents may have been skipped either because they were not selfposts or\nbecause the content was removed from its respective subreddit.\nIt's also likely, however, that this user simply doesn't have enough posts to begin with.")
+        if (total != 1000): print("Note that some contents may have been skipped either because they were not selfposts or\nbecause the content was removed from its respective subreddit.\nIt's also likely, however, that this user simply doesn't have enough content to begin with.")
     except HTTPError as e:
         print("Crap! It seems you've run into error", str(e.code) + "! Aborting mission.\nFor best results, please try again in about a minute. In the meantime...")
         if e.code == 404: print("- Make sure that u/" + username, "is a valid Reddit username.")
