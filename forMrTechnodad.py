@@ -9,9 +9,9 @@
 # This program is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-# GNU General Public License for more details.
+# GNU Affero General Public License for more details.
 # 
-# You should have received a copy of the GNU General Public License
+# You should have received a copy of the GNU Affero General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 # 
 
@@ -141,6 +141,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     # below lines attempt to remove all reddit-specific markdown
                     prettifiedContent = re.sub(r"(\*\*\*(?P<mdbolditalic>[^\*\*\*]+)\*\*\*)", "\g<mdbolditalic>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\_\_\_(?P<mdbolditalic>[^\_\_\_]+)\_\_\_)", "\g<mdbolditalic>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\~\~(?P<mdstrike>[^\~\~]+)\~\~)", "\g<mdstrike>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\*\*(?P<mdbold>[^\*\*]+)\*\*)", "\g<mdbold>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\_\_(?P<mdbold>[^\_\_]+)\_\_)", "\g<mdbold>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\*(?P<mditalic>[^\*]+)\*)", "\g<mditalic>", prettifiedContent)
@@ -148,6 +149,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     prettifiedContent = re.sub(r"(\>\!(?P<mdspoiler>[^\!\<]+)\!\<)", "\g<mdspoiler>", prettifiedContent)
                     prettifiedContent = re.sub(r"(\>)*( )*(?P<mdquote>.*)", "\g<mdquote>", prettifiedContent)
                     prettifiedContent = re.sub(r"\^(?P<mdsuper>[^\^ ]*)", "\g<mdsuper>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\#{1,5}(?P<mdheading>[^\v]*)", "\g<mdheading>", prettifiedContent)
                     prettifiedContent = re.sub(r"((\`){1,3}(?P<mdcode>[^\`]+)(\`){1,3})", "\g<mdcode>", prettifiedContent)
                     prettifiedContent = re.sub(r"\[(?P<mdlinktext>[^\]]*)\]\((?P<mdlinkurl>[^\)]*)\)", "\g<mdlinktext> __[\g<mdlinkurl>]__ ", prettifiedContent)
                     # ensure escaped chars render properly
@@ -179,9 +181,8 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
         print("- Have a glass of water and stay hydrated.")
         return
 
-grabRedditContent("mrtechnodad", False) # sample code to grab selfposts for u/mrtechnodad
-grabRedditContent("mrtechnodad", True) # sample code to grab comments for u/mrtechnodad
-
+grabRedditContent("raydeeux", False) # sample code to grab selfposts for u/mrtechnodad
+grabRedditContent("raydeeux", True) # sample code to grab comments for u/mrtechnodad
 
 '''
 CONCLUSION:
