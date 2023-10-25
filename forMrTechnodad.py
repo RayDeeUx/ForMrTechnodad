@@ -174,6 +174,7 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
         afterKeyFile.close()
         # aaaaaand we are done! celebrate by printing a summary of what just happened.
         print(type, "content scraping complete for u/" + username + "!", total, type.lower() + "s were scraped.")
+        if (total != 1000): print("Note that some contents may have been skipped either because they were not selfposts or\nbecause the content was removed from its respective subreddit.\nIt's also likely, however, that this user simply doesn't have enough posts to begin with.")
     except HTTPError as e:
         print("Crap! It seems you've run into error", str(e.code) + "! Aborting mission.\nFor best results, please try again in about a minute. In the meantime...")
         if e.code == 404: print("- Make sure that u/" + username, "is a valid Reddit username.")
@@ -181,8 +182,8 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
         print("- Have a glass of water and stay hydrated.")
         return
 
-grabRedditContent("raydeeux", False) # sample code to grab selfposts for u/mrtechnodad
-grabRedditContent("raydeeux", True) # sample code to grab comments for u/mrtechnodad
+grabRedditContent("mrtechnodad", False) # sample code to grab selfposts for u/mrtechnodad
+grabRedditContent("mrtechnodad", True) # sample code to grab comments for u/mrtechnodad
 
 '''
 CONCLUSION:
