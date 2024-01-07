@@ -11,7 +11,7 @@
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 # GNU Affero General Public License for more details.
 # 
-# You should have received a copy of the GNU Affero General Public License
+# You should have received a copy of the GNU General Public License
 # along with this program. If not, see <https://www.gnu.org/licenses/>.
 # 
 
@@ -139,21 +139,21 @@ def grabRedditContent(username: str, commentMode: bool): # "commentMode = False"
                     prettifiedContent = re.sub(r"!\[gif\]\(.*\)", " __[GIF CONTENT]__ ", prettifiedContent)
                     prettifiedContent = re.sub(r"https\:\/\/preview\.redd\.it/.*", " __[IMAGE]__ ", prettifiedContent)
                     # below lines attempt to remove all reddit-specific markdown
-                    prettifiedContent = re.sub(r"(\*\*\*(?P<mdbolditalic>[^\*\*\*]+)\*\*\*)", "\g<mdbolditalic>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\_\_\_(?P<mdbolditalic>[^\_\_\_]+)\_\_\_)", "\g<mdbolditalic>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\~\~(?P<mdstrike>[^\~\~]+)\~\~)", "\g<mdstrike>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\*\*(?P<mdbold>[^\*\*]+)\*\*)", "\g<mdbold>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\_\_(?P<mdbold>[^\_\_]+)\_\_)", "\g<mdbold>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\*(?P<mditalic>[^\*]+)\*)", "\g<mditalic>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\_(?P<mditalic>[^\_]+)\_)", "\g<mditalic>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\>\!(?P<mdspoiler>[^\!\<]+)\!\<)", "\g<mdspoiler>", prettifiedContent)
-                    prettifiedContent = re.sub(r"(\>)*( )*(?P<mdquote>.*)", "\g<mdquote>", prettifiedContent)
-                    prettifiedContent = re.sub(r"\^(?P<mdsuper>[^\^ ]*)", "\g<mdsuper>", prettifiedContent)
-                    prettifiedContent = re.sub(r"\#{1,5}(?P<mdheading>.*)", "\g<mdheading>", prettifiedContent)
-                    prettifiedContent = re.sub(r"((\`){1,3}(?P<mdcode>[^\`]+)(\`){1,3})", "\g<mdcode>", prettifiedContent)
-                    prettifiedContent = re.sub(r"\[(?P<mdlinktext>[^\]]*)\]\((?P<mdlinkurl>[^\)]*)\)", "\g<mdlinktext> __[\g<mdlinkurl>]__ ", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\*\*\*(?P<mdbolditalic>[^\*\*\*]+)\*\*\*)", "\\g<mdbolditalic>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\_\_\_(?P<mdbolditalic>[^\_\_\_]+)\_\_\_)", "\\g<mdbolditalic>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\~\~(?P<mdstrike>[^\~\~]+)\~\~)", "\\g<mdstrike>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\*\*(?P<mdbold>[^\*\*]+)\*\*)", "\\g<mdbold>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\_\_(?P<mdbold>[^\_\_]+)\_\_)", "\\g<mdbold>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\*(?P<mditalic>[^\*]+)\*)", "\\g<mditalic>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\_(?P<mditalic>[^\_]+)\_)", "\\g<mditalic>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\>\!(?P<mdspoiler>[^\!\<]+)\!\<)", "\\g<mdspoiler>", prettifiedContent)
+                    prettifiedContent = re.sub(r"(\>)*( )*(?P<mdquote>.*)", "\\g<mdquote>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\^(?P<mdsuper>[^\^ ]*)", "\\g<mdsuper>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\#{1,5}(?P<mdheading>.*)", "\\g<mdheading>", prettifiedContent)
+                    prettifiedContent = re.sub(r"((\`){1,3}(?P<mdcode>[^\`]+)(\`){1,3})", "\\g<mdcode>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\[(?P<mdlinktext>[^\]]*)\]\((?P<mdlinkurl>[^\)]*)\)", "\\g<mdlinktext> __[\\g<mdlinkurl>]__ ", prettifiedContent)
                     # ensure escaped chars render properly
-                    prettifiedContent = re.sub(r"\\(?P<escapedChar>\S.)", "\g<escapedChar>", prettifiedContent)
+                    prettifiedContent = re.sub(r"\\(?P<escapedChar>\S.)", "\\g<escapedChar>", prettifiedContent)
                     # eliminate "  "s because they're ugly as heck 
                     prettifiedContent = prettifiedContent.replace("  ", " ")
                     # below line appends new line for readability between heading and actual content
